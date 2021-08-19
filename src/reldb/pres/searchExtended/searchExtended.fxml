@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import java.net.URL?>
+
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0"
+           prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.172" xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="reldb.pres.searchExtended.SearchExtendedController">
+    <VBox styleClass="mainVBoxContainer" alignment="TOP_CENTER">
+        <MenuBar>
+            <Menu text="search IMDB">
+                <MenuItem onAction="#processSearchKeyword" text="search for keyword/phrase"/>
+                <MenuItem onAction="#processExtendedSearch" text="extended title search"/>
+                <SeparatorMenuItem/>
+                <MenuItem onAction="#processQuit" text="Quit"/>
+            </Menu>
+            <Menu text="Rent-A-Movie">
+                <MenuItem onAction="#processViewRentLists" text="view rentlists"/>
+            </Menu>
+            <Menu text="Help">
+                <MenuItem text="About"/>
+            </Menu>
+        </MenuBar>
+        <Label alignment="TOP_CENTER" contentDisplay="TOP" text="extended Title Search" underline="true">
+            <font>
+                <Font name="System Bold" size="20.0"/>
+            </font>
+            <VBox.margin>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+            </VBox.margin>
+        </Label>
+        <VBox styleClass="vboxContainer" >
+            <VBox.margin>
+                <Insets bottom="5.0" left="10.0" right="10.0" top="5.0"/>
+            </VBox.margin>
+            <HBox spacing="20.0">
+                <VBox.margin>
+                    <Insets/>
+                </VBox.margin>
+                <padding>
+                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                </padding>
+                <Label text="Title:">
+                    <font>
+                        <Font name="System Bold" size="14.0"/>
+                    </font>
+                </Label>
+                <TextField fx:id="titleKeywordTF" promptText="enter keyword or phrase" prefHeight="25.0" prefWidth="600.0"/>
+                <RadioButton fx:id="matchAllRB" text="match all" toggleGroup="$matchGroup" selected="true">
+                    <toggleGroup>
+                        <ToggleGroup fx:id="matchGroup"/>
+                    </toggleGroup>
+                </RadioButton>
+                <RadioButton fx:id="matchAnyRB" text="match any" toggleGroup="$matchGroup"/>
+                <RadioButton fx:id="matchExactRB" text="match exact" toggleGroup="$matchGroup"/>
+            </HBox>
+            <GridPane fx:id="kindGrid" VBox.vgrow="ALWAYS">
+                <columnConstraints>
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                </columnConstraints>
+                <rowConstraints>
+                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                </rowConstraints>
+                <VBox.margin>
+                    <Insets/>
+                </VBox.margin>
+                <padding>
+                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                </padding>
+                <Label text="Search for:" underline="true"/>
+                <CheckBox fx:id="movieCB" text="Movie" GridPane.columnIndex="1"/>
+                <CheckBox fx:id="videoCB" text="Video Movie" GridPane.columnIndex="2"/>
+                <CheckBox fx:id="tvMovieCB" text="TV Movie" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+                <CheckBox fx:id="tvSeriesCB" text="TV Series" GridPane.columnIndex="3"/>
+                <CheckBox fx:id="tvMiniSeriesCB" text="TV Mini Series" GridPane.columnIndex="3" GridPane.rowIndex="1"/>
+                <CheckBox fx:id="videoGameCB" text="Video Game" GridPane.columnIndex="4"/>
+                <CheckBox fx:id="episodeCB" text="Episode" GridPane.columnIndex="4" GridPane.rowIndex="1"/>
+                <CheckBox fx:id="selectAllCB" text="De-/Select All" onAction="#selectAll" GridPane.columnIndex="5"/>
+            </GridPane>
+            <HBox alignment="BOTTOM_LEFT" spacing="20.0">
+                <padding>
+                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                </padding>
+                <GridPane fx:id="infoFilterGrid" hgap="5.0" vgap="5.0">
+                    <columnConstraints>
+                        <ColumnConstraints halignment="LEFT" hgrow="ALWAYS"/>
+                        <ColumnConstraints halignment="LEFT" hgrow="ALWAYS"/>
+                        <ColumnConstraints halignment="LEFT" hgrow="ALWAYS"/>
+                        <ColumnConstraints halignment="LEFT" hgrow="ALWAYS"/>
+                        <ColumnConstraints halignment="LEFT" hgrow="ALWAYS"/>
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints valignment="CENTER" vgrow="ALWAYS"/>
+                        <RowConstraints valignment="CENTER" vgrow="ALWAYS"/>
+                        <RowConstraints valignment="CENTER" vgrow="ALWAYS"/>
+                        <RowConstraints valignment="CENTER" vgrow="ALWAYS"/>
+                        <RowConstraints valignment="CENTER" vgrow="ALWAYS"/>
+                    </rowConstraints>
+                    <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                    </padding>
+                    <HBox.margin>
+                        <Insets/>
+                    </HBox.margin>
+                    <fx:define>
+                        <CheckBox fx:id="pyearCB" text="filter:" GridPane.rowIndex="0"/>
+                    </fx:define>
+                    <fx:reference source="pyearCB"/>
+                    <Label text="Production year after" GridPane.columnIndex="1" GridPane.rowIndex="0" disable="${!pyearCB.selected}" />
+                    <TextField fx:id="pYearFromTF" promptText="Year" prefWidth="150.0" GridPane.columnIndex="2" GridPane.rowIndex="0" disable="${!pyearCB.selected}"/>
+                    <Label text="and before" GridPane.columnIndex="3" GridPane.rowIndex="0" disable="${!pyearCB.selected}"/>
+                    <TextField fx:id="pYearToTF" promptText="Year" prefWidth="150.0" GridPane.columnIndex="4" GridPane.rowIndex="0" disable="${!pyearCB.selected}"/>
+                    <fx:define>
+                        <CheckBox fx:id="ratingCB" text="filter:" GridPane.rowIndex="1"/>
+                    </fx:define>
+                    <fx:reference source="ratingCB"/>
+                    <Label text="Rating higher than" GridPane.columnIndex="1" GridPane.rowIndex="1" disable="${!ratingCB.selected}"/>
+                    <TextField fx:id="ratingFromTF" promptText="1.0 - 10.0" prefWidth="150.0" GridPane.columnIndex="2" GridPane.rowIndex="1" disable="${!ratingCB.selected}"/>
+                    <Label text="and lower than" GridPane.columnIndex="3" GridPane.rowIndex="1" disable="${!ratingCB.selected}"/>
+                    <TextField fx:id="ratingToTF" promptText="1.0 - 10.0" prefWidth="150.0" GridPane.columnIndex="4" GridPane.rowIndex="1" disable="${!ratingCB.selected}"/>
+                    <fx:define>
+                        <CheckBox fx:id="votesCB" text="filter:" GridPane.rowIndex="2"/>
+                    </fx:define>
+                    <fx:reference source="votesCB"/>
+                    <Label text="Votes more than" GridPane.columnIndex="1" GridPane.rowIndex="2" disable="${!votesCB.selected}"/>
+                    <TextField fx:id="votesFromTF" promptText="number" prefWidth="150.0" GridPane.columnIndex="2" GridPane.rowIndex="2" disable="${!votesCB.selected}"/>
+                    <Label text="and less than" GridPane.columnIndex="3" GridPane.rowIndex="2" disable="${!votesCB.selected}"/>
+                    <TextField fx:id="votesToTF" promptText="number" prefWidth="150.0" GridPane.columnIndex="4" GridPane.rowIndex="2" disable="${!votesCB.selected}"/>
+                    <fx:define>
+                        <CheckBox fx:id="budgetCB" text="filter:" GridPane.rowIndex="3"/>
+                    </fx:define>
+                    <fx:reference source="budgetCB"/>
+                    <Label text="Budget higher than" GridPane.columnIndex="1" GridPane.rowIndex="3" disable="${!budgetCB.selected}"/>
+                    <TextField fx:id="budgetFromTF" promptText="number" prefWidth="150.0" GridPane.columnIndex="2" GridPane.rowIndex="3" disable="${!budgetCB.selected}"/>
+                    <Label text="and lower than" GridPane.columnIndex="3" GridPane.rowIndex="3" disable="${!budgetCB.selected}"/>
+                    <TextField fx:id="budgetToTF" promptText="number" prefWidth="150.0" GridPane.columnIndex="4" GridPane.rowIndex="3" disable="${!budgetCB.selected}"/>
+                    <fx:define>
+                        <CheckBox fx:id="runtimeCB" text="filter:" GridPane.rowIndex="4"/>
+                    </fx:define>
+                    <fx:reference source="runtimeCB"/>
+                    <Label text="Runtime more than" GridPane.columnIndex="1" GridPane.rowIndex="4" disable="${!runtimeCB.selected}"/>
+                    <TextField fx:id="runtimeFromTF" promptText="minutes" prefWidth="150.0" GridPane.columnIndex="2" GridPane.rowIndex="4" disable="${!runtimeCB.selected}"/>
+                    <Label text="and less than" GridPane.columnIndex="3" GridPane.rowIndex="4" disable="${!runtimeCB.selected}"/>
+                    <TextField fx:id="runtimeToTF" promptText="minutes" prefWidth="150.0" GridPane.columnIndex="4" GridPane.rowIndex="4" disable="${!runtimeCB.selected}"/>
+                </GridPane>
+                <VBox fx:id="genreBox">
+                    <HBox.margin>
+                        <Insets/>
+                    </HBox.margin>
+                    <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                    </padding>
+                    <HBox spacing="10.0">
+                        <Label text="Genres:" underline="true">
+                            <HBox.margin>
+                                <Insets bottom="5.0" right="50.0" top="5.0"/>
+                            </HBox.margin>
+                        </Label>
+                        <Button prefHeight="25.0" prefWidth="110.0" text="+ add row" onAction="#addGenreSelectionRow">
+                            <HBox.margin>
+                                <Insets/>
+                            </HBox.margin>
+                        </Button>
+                    </HBox>
+                </VBox>
+            </HBox>
+        </VBox>
+        <VBox styleClass="vboxContainer" >
+            <VBox.margin>
+                <Insets bottom="5.0" left="10.0" right="10.0" top="5.0"/>
+            </VBox.margin>
+            <GridPane fx:id="personGrid" hgap="5.0" vgap="5.0">
+                <columnConstraints>
+                    <ColumnConstraints fillWidth="false" halignment="LEFT" hgrow="ALWAYS" percentWidth="15.0"/>
+                    <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" percentWidth="20.0"/>
+                    <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" percentWidth="20.0"/>
+                    <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" percentWidth="40.0"/>
+                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" percentWidth="5.0"/>
+                </columnConstraints>
+                <rowConstraints>
+                    <RowConstraints vgrow="ALWAYS"/>
+                    <RowConstraints vgrow="ALWAYS"/>
+                    <RowConstraints vgrow="ALWAYS"/>
+                </rowConstraints>
+                <VBox.margin>
+                    <Insets/>
+                </VBox.margin>
+                <padding>
+                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                </padding>
+                <Label text="with Person:">
+                    <font>
+                        <Font name="System Bold" size="14.0"/>
+                    </font>
+                    <GridPane.margin>
+                        <Insets/>
+                    </GridPane.margin>
+                </Label>
+                <Button prefHeight="25.0" prefWidth="150.0" text="+ add row" GridPane.columnIndex="1" onAction="#addRoleSelectionRow"/>
+            </GridPane>
+        </VBox>
+        <VBox styleClass="vboxContainer" >
+            <VBox.margin>
+                <Insets bottom="5.0" left="10.0" right="10.0" top="5.0"/>
+            </VBox.margin>
+            <GridPane fx:id="charNameGrid" hgap="5.0" vgap="5.0">
+                <columnConstraints>
+                    <ColumnConstraints fillWidth="false" halignment="LEFT" hgrow="ALWAYS" percentWidth="15.0"/>
+                    <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" percentWidth="20.0"/>
+                    <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" percentWidth="60.0"/>
+                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" percentWidth="5.0"/>
+                </columnConstraints>
+                <rowConstraints>
+                    <RowConstraints vgrow="ALWAYS"/>
+                    <RowConstraints vgrow="ALWAYS"/>
+                    <RowConstraints vgrow="ALWAYS"/>
+                </rowConstraints>
+                <padding>
+                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                </padding>
+                <Label text="with Charactername:">
+                    <font>
+                        <Font name="System Bold" size="14.0"/>
+                    </font>
+                </Label>
+                <Button prefHeight="25.0" prefWidth="150.0" text="+ add row" GridPane.columnIndex="1" onAction="#addCharacterSelectionRow"/>
+            </GridPane>
+        </VBox>
+        <Button onAction="#validateAndSearch" text="Search!">
+            <VBox.margin>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+            </VBox.margin>
+        </Button>
+    </VBox>
+    <stylesheets>
+        <URL value="@searchextended.css" />
+    </stylesheets>
+</StackPane>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<StackPane fx:id="AnchorPane" prefHeight="350.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/9.0.1"
+           xmlns:fx="http://javafx.com/fxml/1" fx:controller="reldb.pres.rent.RentMovieController">
+    <VBox spacing="10.0" StackPane.alignment="CENTER">
+        <padding>
+            <Insets topRightBottomLeft="10.0"/>
+        </padding>
+        <GridPane>
+            <columnConstraints>
+                <ColumnConstraints minWidth="100.0" prefWidth="120.0"/>
+                <ColumnConstraints percentWidth="70"/>
+             </columnConstraints>
+             <rowConstraints>
+                <RowConstraints prefHeight="40.0"/>
+                <RowConstraints prefHeight="40.0"/>
+                <RowConstraints prefHeight="40.0"/>
+                <RowConstraints prefHeight="40.0"/>
+                <RowConstraints prefHeight="40.0"/>
+             </rowConstraints>
+        <Label text="Titel: " />
+         <Label fx:id="titleLabel" GridPane.columnIndex="1"/>
+         <Label GridPane.rowIndex="1" text="KundenId: "/>
+         <Label GridPane.rowIndex="1" GridPane.columnIndex="1" fx:id="idLabel"/>
+         <Label GridPane.rowIndex="2" text="Kundenname: "/>
+         <Label GridPane.rowIndex="2" GridPane.columnIndex="1" fx:id="nameLabel"/>
+         <Label GridPane.rowIndex="3" text="Ausleihdatum: "/>
+         <DatePicker GridPane.rowIndex="3" GridPane.columnIndex="1" fx:id="dateField"/>
+         <Label GridPane.rowIndex="4" text="Bemerkung: "/>
+         <TextField GridPane.rowIndex="4" GridPane.columnIndex="1" fx:id="noteField"/>
+      </GridPane>
+      <Button text="Kunden" onAction="#getCustomer" />
+      <Button text="Ausleihen" onAction="#rent" />
+    </VBox>
+</StackPane>
+

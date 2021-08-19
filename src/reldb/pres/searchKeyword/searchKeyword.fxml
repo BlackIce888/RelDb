@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="445.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="reldb.pres.searchKeyword.SearchKeywordController">
+  <children>
+    <MenuBar>
+    <Menu text="search IMDB">
+      <MenuItem onAction="#processSearchKeyword" text="search for keyword/phrase"/>
+      <MenuItem onAction="#processExtendedSearch" text="extended title search"/>
+      <SeparatorMenuItem/>
+      <MenuItem onAction="#processQuit" text="Quit"/>
+    </Menu>
+    <Menu text="Rent-A-Movie">
+      <MenuItem onAction="#processViewRentLists" text="view rentlists"/>
+    </Menu>
+    <Menu text="Help">
+      <MenuItem text="About"/>
+    </Menu>
+    </MenuBar>
+    <Label layoutX="131.0" layoutY="44.0" text="Search for keywords/phrase" underline="true">
+      <font>
+        <Font name="System Bold" size="16.0" />
+      </font>
+    </Label>
+    <Label labelFor="$null" layoutX="23.0" layoutY="100.0" prefWidth="108.0" text="Keyword/Phrase:">
+      <font>
+        <Font size="14.0" fx:id="x1" />
+      </font>
+    </Label>
+    <TextField id="keywordTF" fx:id="keywordTextField" layoutX="131.0" layoutY="84.0" prefHeight="30.0" prefWidth="291.0" promptText="enter keyword or phrase" />
+    <Label font="$x1" layoutX="23.0" layoutY="188.0" prefWidth="108.0" text="Search for:">
+      <labelFor>
+        <CheckBox fx:id="titleCB" font="$x1" mnemonicParsing="false" selected="true" text="Titles" />
+      </labelFor>
+    </Label>
+    <VBox layoutX="131.0" layoutY="188.0" prefHeight="136.0" prefWidth="291.0" spacing="5.0">
+      <children>
+        <fx:reference source="titleCB" />
+        <CheckBox fx:id="personCB" font="$x1" mnemonicParsing="false" selected="true" text="Persons" />
+        <CheckBox fx:id="characterCB" font="$x1" mnemonicParsing="false" selected="true" text="Characters" />
+        <CheckBox fx:id="companiesCB" font="$x1" mnemonicParsing="false" selected="true" text="Companies" />
+        <Separator prefWidth="200.0" />
+        <CheckBox fx:id="selectAllCB" font="$x1" mnemonicParsing="false" onAction="#selectAll" selected="true" text="De-/Select All" />
+      </children>
+    </VBox>
+    <Button defaultButton="true" font="$x1" layoutX="165.0" layoutY="341.0" mnemonicParsing="false" onAction="#processSearch" prefHeight="49.0" prefWidth="116.0" text="Search!" />
+    <RadioButton id="matchAllRB" fx:id="matchAllRadioButton" font="$x1" layoutX="131.0" layoutY="123.0" mnemonicParsing="false" selected="true" text="match all">
+         <toggleGroup>
+            <ToggleGroup fx:id="matchGroup" />
+         </toggleGroup>
+    </RadioButton>
+    <RadioButton id="matchAnyRB" fx:id="matchAnyRadioButton" font="$x1" layoutX="221.0" layoutY="123.0" mnemonicParsing="false" text="match any" toggleGroup="$matchGroup" />
+    <RadioButton fx:id="matchExactRadioButton" font="$x1" layoutX="318.0" layoutY="123.0" mnemonicParsing="false" text="match exact" toggleGroup="$matchGroup" />
+  </children>
+  <stylesheets>
+    <URL value="@searchkeyword.css" />
+  </stylesheets>
+</AnchorPane>

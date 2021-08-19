@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.StackPane?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.Pane?>
+<StackPane fx:id="AnchorPane" prefHeight="1000.0" prefWidth="1250.0" xmlns="http://javafx.com/javafx/9.0.1"
+           xmlns:fx="http://javafx.com/fxml/1" fx:controller="reldb.pres.searchResults.SearchResultsController">
+    <VBox spacing="10.0">
+        <padding>
+            <Insets bottom="10.0"/>
+        </padding>
+    <TabPane fx:id="searchResultsTabPane" tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
+        <Tab fx:id="titleTab" text="Titel">
+            <TableView fx:id="titleTable">
+                <columns>
+                    <TableColumn fx:id="titleCol" editable="false" text="Titel"/>
+                    <TableColumn fx:id="yearCol" editable="false" text="Jahr"/>
+                    <TableColumn fx:id="kindCol" editable="false" text="Art"/>
+                </columns>
+            </TableView>
+        </Tab>
+        <Tab fx:id="personsTab" text="Personen">
+            <TableView fx:id="personTable">
+                <columns>
+                    <TableColumn fx:id="nameCol" editable="false" text="Name"/>
+                    <TableColumn fx:id="genderCol" editable="false" text="Geschlecht"/>
+                    <TableColumn fx:id="birthCol" editable="false" text="Geburtsdatum"/>
+                </columns>
+            </TableView>
+        </Tab>
+        <Tab fx:id="charNameTab" text="Rollennamen">
+            <TableView fx:id="charNameTable">
+                <columns>
+                    <TableColumn fx:id="charNameCol" editable="false" text="Rollenname"/>
+                    <TableColumn fx:id="actorCol" editable="false" text="Schauspieler"/>
+                    <TableColumn fx:id="charNameTitleCol" editable="false" text="Titel"/>
+                    <TableColumn fx:id="charNameYearCol" editable="false" text="Jahr"/>
+                </columns>
+            </TableView>
+        </Tab>
+        <Tab fx:id="movieCompaniesTab" text="Firmen">
+            <TableView fx:id="companyTable">
+                <columns>
+                    <TableColumn fx:id="companyNameCol" editable="false" text="Name"/>
+                    <TableColumn fx:id="companyTypeCol" editable="false" text="Art"/>
+                </columns>
+            </TableView>
+        </Tab>
+    </TabPane>
+    <HBox spacing="10.0">
+        <Pane HBox.hgrow="ALWAYS"/>
+        <Button onAction="#parseList" text="Print Row"/>
+        <Pane HBox.hgrow="ALWAYS"/>
+        <Button fx:id="detailButton" onAction="#detailview" text="Detailanischt"/>
+        <Pane HBox.hgrow="ALWAYS"/>
+    </HBox>
+
+    </VBox>
+</StackPane>

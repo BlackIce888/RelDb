@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<StackPane fx:id="AnchorPane" prefHeight="1000.0" prefWidth="1250.0" xmlns="http://javafx.com/javafx/9.0.1"
+           xmlns:fx="http://javafx.com/fxml/1" fx:controller="reldb.pres.rent.ReturnMovieController">
+    <VBox spacing="10.0" StackPane.alignment="CENTER">
+        <padding>
+            <Insets topRightBottomLeft="10.0"/>
+        </padding>
+        <TableView fx:id="rentTable" VBox.vgrow="ALWAYS">
+           <columns>
+              <TableColumn fx:id="titleCol" editable="false" prefWidth="450" text="Titel"/>
+              <TableColumn fx:id="rentDateCol" editable="false" prefWidth="150" text="Ausleihdatum"/>
+              <TableColumn fx:id="returnDateCol" editable="false" prefWidth="150" text="Rückgabedatum"/>
+              <TableColumn fx:id="noteCol" editable="false" prefWidth="300" text="Notiz"/>
+           </columns>
+        </TableView>
+        <Button text="Film auswählen" onAction="#transfer"/>
+        <GridPane>
+            <columnConstraints>
+                <ColumnConstraints minWidth="120.0" prefWidth="150.0"/>
+                <ColumnConstraints percentWidth="70"/>
+             </columnConstraints>
+             <rowConstraints>
+                <RowConstraints prefHeight="40.0"/>
+                <RowConstraints prefHeight="40.0"/>
+                <RowConstraints prefHeight="40.0"/>
+                <RowConstraints prefHeight="40.0"/>
+             </rowConstraints>
+            <Label text="Titel: " />
+            <Label fx:id="titleLabel" GridPane.columnIndex="1"/>
+            <Label text="Ausleihdatum: " GridPane.rowIndex="1" />
+            <DatePicker fx:id="rentDatePicker" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+            <Label text="Rückgabedatum: " GridPane.rowIndex="2" />
+            <DatePicker fx:id="returnDatePicker" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+            <Label text="Bemerkung: " GridPane.rowIndex="3" />
+            <TextField fx:id="noteField" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+        </GridPane>
+        <Button text="Speichern" onAction="#save" />
+        <Button text="Bewerten" onAction="#rate" />
+    </VBox>
+</StackPane>

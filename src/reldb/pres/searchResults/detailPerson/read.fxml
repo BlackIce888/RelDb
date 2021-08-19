@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<StackPane fx:id="AnchorPane" prefHeight="1000.0" prefWidth="1250.0" xmlns="http://javafx.com/javafx/9.0.1"
+           xmlns:fx="http://javafx.com/fxml/1" fx:controller="reldb.pres.searchResults.detailPerson.Read">
+    <VBox spacing="10.0"> 
+       <padding>
+            <Insets bottom="10.0"/>
+        </padding>
+    <TextArea
+    fx:id="bioLabel" editable="false" wrapText="true" VBox.vgrow="ALWAYS">
+    </TextArea>
+    </VBox>
+</StackPane>

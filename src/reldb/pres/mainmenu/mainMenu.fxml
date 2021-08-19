@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import java.net.URL?>
+
+<VBox styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="reldb.pres.mainmenu.MainMenuController">
+  <stylesheets>
+    <URL value="@mainmenu.css"/>
+  </stylesheets>
+  <MenuBar>
+    <Menu text="search IMDB">
+      <MenuItem onAction="#processSearchKeyword" text="search for keyword/phrase"/>
+      <MenuItem onAction="#processExtendedSearch" text="extended title search"/>
+      <SeparatorMenuItem/>
+      <MenuItem onAction="#processQuit" text="Quit"/>
+    </Menu>
+    <Menu text="Rent-A-Movie">
+      <MenuItem onAction="#processViewRentLists" text="view rentlists"/>
+    </Menu>
+    <Menu text="Help">
+      <MenuItem text="About"/>
+    </Menu>
+  </MenuBar>
+  <StackPane fx:id="mainPane"/>
+</VBox>

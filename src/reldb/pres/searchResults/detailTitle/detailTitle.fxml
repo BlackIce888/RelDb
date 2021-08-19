@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Font?>
+
+<StackPane id="AnchorPane" prefHeight="1000.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/9.0.1"
+           xmlns:fx="http://javafx.com/fxml/1" fx:controller="reldb.pres.searchResults.detailTitle.DetailTitleController">
+    <VBox spacing="10.0" StackPane.alignment="CENTER">
+      <padding>
+         <Insets topRightBottomLeft="10.0"/>
+      </padding>
+      <Label fx:id="nameLabel" text="Name" textAlignment="JUSTIFY">
+         <font>
+            <Font size="20.0"/>
+         </font>
+      </Label>
+      <GridPane>
+         <columnConstraints>
+            <ColumnConstraints minWidth="120.0" prefWidth="150.0"/>
+            <ColumnConstraints percentWidth="70"/>
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints prefHeight="25.0"/>
+            <RowConstraints prefHeight="25.0"/>
+            <RowConstraints prefHeight="25.0"/>
+            <RowConstraints prefHeight="25.0"/>
+            <RowConstraints prefHeight="25.0"/>
+            <RowConstraints prefHeight="25.0"/>
+            <RowConstraints prefHeight="25.0"/>
+            <RowConstraints prefHeight="25.0"/>
+            <RowConstraints prefHeight="25.0"/>
+            <RowConstraints prefHeight="25.0"/>
+         </rowConstraints>
+         <Label text="Altersfreigabe: " />
+         <Label fx:id="ratedLabel" GridPane.columnIndex="1"/>
+         <Label GridPane.rowIndex="1" text="Typ: "/>
+         <Label GridPane.rowIndex="1" GridPane.columnIndex="1" fx:id="kindLabel"/>
+         <Label GridPane.rowIndex="2" text="Genre: "/>
+         <Label GridPane.rowIndex="2" GridPane.columnIndex="1" fx:id="genreLabel"/>
+         <Label GridPane.rowIndex="3" text="Tagline: "/>
+         <Label GridPane.rowIndex="3" GridPane.columnIndex="1" fx:id="taglineLabel"/>
+         <Label GridPane.rowIndex="4" text="Laufzeiten: "/>
+         <Label GridPane.rowIndex="4" GridPane.columnIndex="1" fx:id="runtimesLabel"/>
+         <Label GridPane.rowIndex="5" text="Veröffentlichungsdatum: "/>
+         <Label GridPane.rowIndex="5" GridPane.columnIndex="1" fx:id="releasLabel"/>
+         <Label GridPane.rowIndex="6" text="Bewertung: "/>
+         <Label GridPane.rowIndex="6" GridPane.columnIndex="1" fx:id="votesLabel"/>
+         <Label GridPane.rowIndex="7" text="Budget "/>
+         <Label GridPane.rowIndex="7" GridPane.columnIndex="1" fx:id="budgetLabel"/>
+         
+         <Label GridPane.rowIndex="8" text="Plot: "/>
+         <TextArea GridPane.rowIndex="8" GridPane.rowSpan="2" GridPane.columnIndex="1" fx:id="plotLabel"
+                   editable="false" wrapText="true"/>
+         <Label GridPane.rowIndex="10" text="Bücher: "/>
+         <TextArea GridPane.rowIndex="10" GridPane.rowSpan="2" GridPane.columnIndex="1" fx:id="booksLabel"
+                   editable="false" wrapText="true"/>
+      </GridPane>
+      <GridPane prefHeight="500" >
+        <Label text="Besetzung" />
+        <TableView fx:id="castTable" VBox.vgrow="ALWAYS" GridPane.rowIndex="1" GridPane.rowSpan="3">
+           <columns>
+              <TableColumn fx:id="rolesCol" editable="false" prefWidth="300" text="Rollen"/>
+              <TableColumn fx:id="personNameCol" editable="false" prefWidth="300" text="Person"/>
+              <TableColumn fx:id="genderCol" editable="false" prefWidth="100" text="Geschlecht"/>
+           </columns>
+        </TableView>
+        <Button onAction="#showPersonDetail" text="Detailanischt" GridPane.rowIndex="4"/>
+        <Label text="Firmen" GridPane.columnIndex="1"/>
+        <TableView fx:id="companiesTable" VBox.vgrow="ALWAYS" GridPane.rowIndex="1" GridPane.columnIndex="1">
+           <columns>
+              <TableColumn fx:id="companyNameCol" editable="false" prefWidth="350" text="Name"/>
+              <TableColumn fx:id="companyTypeCol" editable="false" prefWidth="100" text="Art"/>
+              <TableColumn fx:id="companyNoteCol" editable="false" prefWidth="250" text="Anmerkung"/>
+           </columns>
+        </TableView>
+        <Label text="Verlinkte Filme" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+        <TableView fx:id="titleTable" VBox.vgrow="ALWAYS" GridPane.rowIndex="3" GridPane.columnIndex="1">
+           <columns>
+              <TableColumn fx:id="titleCol" editable="false" prefWidth="450" text="Titel"/>
+              <TableColumn fx:id="yearCol" editable="false" prefWidth="100" text="Jahr"/>
+              <TableColumn fx:id="kindCol" editable="false" prefWidth="100" text="Art"/>
+           </columns>
+        </TableView>
+        <Button onAction="#showTitleDetail" text="Detailanischt" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+      </GridPane>
+      <Button onAction="#rentTitle" text="Film ausleihen" />
+   </VBox>
+</StackPane>

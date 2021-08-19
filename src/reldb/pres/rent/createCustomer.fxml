@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<StackPane fx:id="AnchorPane" prefHeight="500.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/9.0.1"
+           xmlns:fx="http://javafx.com/fxml/1" fx:controller="reldb.pres.rent.CreateCustomerController">
+    <VBox spacing="10.0" StackPane.alignment="CENTER">
+        <padding>
+            <Insets topRightBottomLeft="10.0"/>
+        </padding>
+        <GridPane>
+            <columnConstraints>
+                <ColumnConstraints minWidth="120.0" prefWidth="150.0"/>
+                <ColumnConstraints percentWidth="70"/>
+             </columnConstraints>
+             <rowConstraints>
+                <RowConstraints prefHeight="40.0"/>
+                <RowConstraints prefHeight="40.0"/>
+                <RowConstraints prefHeight="40.0"/>
+                <RowConstraints prefHeight="40.0"/>
+                <RowConstraints prefHeight="40.0"/>
+             </rowConstraints>
+            <Label text="Name: " />
+            <TextField fx:id="nameField" GridPane.columnIndex="1"/>
+            <Label text="Geburtsdatum: " GridPane.rowIndex="1" />
+            <DatePicker fx:id="birthdateField" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+            <Label text="Straße: " GridPane.rowIndex="2" />
+            <TextField fx:id="streetField" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+            <Label text="Stadt: " GridPane.rowIndex="3" />
+            <TextField fx:id="cityField" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+            <Label text="Postleitzahl: " GridPane.rowIndex="4" />
+            <TextField fx:id="postcodeField" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+        </GridPane>
+        <GridPane>
+            <columnConstraints>
+                <ColumnConstraints minWidth="150.0" prefWidth="2000.0"/>
+                <ColumnConstraints percentWidth="70"/>
+             </columnConstraints>
+             <rowConstraints>
+                <RowConstraints prefHeight="60.0"/>
+                <RowConstraints prefHeight="60.0"/>
+                <RowConstraints prefHeight="60.0"/>
+             </rowConstraints>
+            <Button text="Kunden anlegen" onAction="#createCustomer"/>
+            <Button text="Kunden löschen" onAction="#deleteCustomer" GridPane.columnIndex="1" />
+            <Button text="Kunden bearbeiten" onAction="#updateCustomer"  GridPane.rowIndex="1" />
+            <Button text="Kunden suchen" onAction="#selectCustomerById" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="idField" text="id" GridPane.rowIndex="2" />
+            <Button text="Kunden Liste" onAction="#selectCustomerByList" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Button text="Film zurückgeben/bearbeiten" onAction="#returnTitle" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+        </GridPane>
+        <Button text="OK" onAction="#rent"/>
+    </VBox>
+</StackPane>
